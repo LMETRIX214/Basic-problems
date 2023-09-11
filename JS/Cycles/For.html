@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Ingresa la cantidad de números máximos que deseas obtener:</p>
+    <input type="number" id="cantidadNumeros">
+    <button onclick="generarNumeros()">Generar</button>
+    <div id="resultado"></div>
+
+    <script>
+        function generarNumeros() {
+            const cantidad = parseInt(document.getElementById('cantidadNumeros').value);
+
+            if (isNaN(cantidad) || cantidad <= 0) {
+                alert('Por favor, ingresa un número válido mayor que cero.');
+                return;
+            }
+
+            let numerosGenerados = '';
+            for (let i = 1; i <= cantidad; i++) {
+                numerosGenerados += `Número ${i}: ${Math.floor(Math.random() * 100)}<br>`;
+            }
+
+            document.getElementById('resultado').innerHTML = numerosGenerados;
+        }
+    </script>
+</body>
+
+</html>
